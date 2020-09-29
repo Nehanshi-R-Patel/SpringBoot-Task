@@ -29,10 +29,12 @@
 		<a class="navbar-brand" href="#"><strong style="color:rgb(254, 64, 118);font-size:40px;">X-WORKZ</strong></a>
 	</div>	</div>
 </nav>
+	<h2 style="text-align: center;">ID :
+		<i>${obj.id}</i></h2>
 	<h2 style="text-align: center;">From :
-		<i>${nameOfSender}</i></h2>
+		<i>${obj.name}</i></h2>
 	<h2 style="text-align: center;">Your Message is:
-		<i>${yourMessage}</i></h2>
+		<i>${obj.message}</i></h2>
 <div class="footer-copyright py-3 text-center">
 	<div class="footer-bottom-text" style="color:black">
 			© 2020 Copyright: <a href="#"> <strong style="color:rgb(254, 64, 118);">X-WORKZ.com </strong></a>
