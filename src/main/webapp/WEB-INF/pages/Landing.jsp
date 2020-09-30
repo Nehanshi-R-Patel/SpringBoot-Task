@@ -41,7 +41,7 @@
 			<div class="form-group row">
 				<label class="col-sm-1 col-form-label"><b><i>Message:</i></b></label>
 				<div class="col-sm-2">
-					<input type="text" class="form-control" name="message" placeholder="Enter your message" />
+				 	<textarea class="form-control" rows="3" id="comment" name="message"  placeholder="Enter your message"></textarea>
 				</div>
 			</div>
 			<div class="container">
@@ -49,6 +49,8 @@
 			</div>
 			</div>
 		</div>
+		<h2 style="text-align: center;">
+		<i>${errorMsg}</i></h2>
 	</form>
 <div class="footer-copyright py-3 text-center">
 	<div class="footer-bottom-text" style="color:black">
