@@ -29,7 +29,7 @@
 		<a class="navbar-brand" href="#"><strong style="color:rgb(254, 64, 118);font-size:40px;">X-WORKZ</strong></a>
 	</div>	</div>
 </nav>
-	<form action="clickEvent" method="get">
+	<form action="clickevent" method="get">
 		<div class="container-fluid mt-5">
 		<div style="height: 500px">
 			<div class="form-group row">
@@ -50,7 +50,9 @@
 			</div>
 		</div>
 		<h2 style="text-align: center;">
-		<i>${errorMsg}</i></h2>
+		<i>${name}</i></h2>
+		<h2 style="text-align: center;">
+		<i>${message}</i></h2>
 	</form>
 <div class="footer-copyright py-3 text-center">
 	<div class="footer-bottom-text" style="color:black">

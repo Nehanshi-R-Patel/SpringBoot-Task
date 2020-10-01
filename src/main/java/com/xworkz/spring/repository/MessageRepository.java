@@ -1,9 +1,9 @@
 package com.xworkz.spring.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.xworkz.spring.entity.MessageEntity;
 
-public interface MessageRepository extends CrudRepository<MessageEntity, Integer> {
+public interface MessageRepository extends JpaRepository<MessageEntity, Integer> {
 
 }

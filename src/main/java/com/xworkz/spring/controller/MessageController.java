@@ -1,57 +1,53 @@
 package com.xworkz.spring.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.xworkz.spring.dto.MessageDTO;
 import com.xworkz.spring.service.MessageService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 public class MessageController {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(MessageController.class);
-
+	
 	@Autowired
 	private MessageService messageService;
-	
-	@Value("${mymessage}")
-	private String message;
 
 	public MessageController() {
-		LOGGER.info(this.getClass().getSimpleName() + " Created...");
+		log.info(this.getClass().getSimpleName() + " Created...");
 	}
 
-	@RequestMapping("Landing")
+	@RequestMapping("landing")
 	public String onLanding() {
-		LOGGER.info("Welcome to landing page of  " + this.getClass().getSimpleName());
-		return "Landing";
+		log.info("Welcome to landing page of  " + this.getClass().getSimpleName());
+		return "landing";
 	}
 
-	@RequestMapping("clickEvent")
-	public ModelAndView addMessage(MessageDTO dto) {
-		LOGGER.info("Inside addMessage() of " + this.getClass().getSimpleName());
+	@RequestMapping("clickevent")
+	public ModelAndView addMessage(MessageDTO dto, Model model) {
+		log.info("invoking addMessage() of " + this.getClass().getSimpleName());
 		ModelAndView view = new ModelAndView();
 		try {
-			boolean check=this.messageService.validateAndSaveMessage(dto);
-			if(check==true) {
-				LOGGER.info("Check is " + check);
-				LOGGER.info("Data Saved in DB");
+			boolean check = this.messageService.validateAndSaveMessage(dto, model);
+			if (check == true) {
+				log.info("Check is " + check);
+				log.info("Data Saved in DB");
 				view.addObject("obj", dto);
-				view.setViewName("LandingSuccess");
+				view.setViewName("success");
 				return view;
-			}else {
-				LOGGER.info("Data is not Saved in DB");
-				view.addObject("errorMsg", message);
-				view.setViewName("Landing");
+			} else {
+				log.error("Data is not Saved in DB");
+				view.setViewName("landing");
 				return view;
 			}
 		} catch (Exception e) {
-			LOGGER.error("Exception occured in Controller " + e.getMessage());
+			log.error("Exception occured in Controller " + e.getMessage());
 		}
 		return view;
 	}
