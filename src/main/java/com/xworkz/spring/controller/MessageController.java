@@ -23,10 +23,10 @@ public class MessageController {
 		log.info(this.getClass().getSimpleName() + " Created...");
 	}
 
-	@RequestMapping("landing")
+	@RequestMapping("home")
 	public String onLanding() {
-		log.info("Welcome to landing page of  " + this.getClass().getSimpleName());
-		return "landing";
+		log.info("Welcome to home page of " + this.getClass().getSimpleName());
+		return "home";
 	}
 
 	@RequestMapping("clickevent")
@@ -43,7 +43,7 @@ public class MessageController {
 				return view;
 			} else {
 				log.error("Data is not Saved in DB");
-				view.setViewName("landing");
+				view.setViewName("home");
 				return view;
 			}
 		} catch (Exception e) {
